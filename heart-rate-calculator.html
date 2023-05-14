@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+    <title>Heart Rate Calculator</title>
+    
+    <!-- customized style for invalid field -->
+    <style>
+      .errorField {
+        border: 1px solid red;
+        background-color: #ddd;
+        padding: .5em;
+        margin: .5em 0;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="card container">
+      <div class="card-header">
+        <h1 class="display-4">Heart Rate Calculator</h1>
+        <p class="lead">Determine your maximum heart rate so you know how hard to work out.</p>
+        <p class="lead">Customize your workouts by exercising in a heart rate zone that reflects your fitness goals.</p>
+      </div>
+
+      <!-- form for visitor to input data -->
+      <div class="card-body" id="formCard">
+        <form>
+          <div class="form-group">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="gender" id="male" value="male">
+              <label class="form-check-label" for="male">Male</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+              <label class="form-check-label" for="female">Female</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="age">Your Age:</label>
+            <!-- to simulate old browsers without support to type=number, I use type=text here -->
+            <input type="text" class="form-control" name="age" id="age" placeholder="Age (1~120):">
+          </div>
+          <div class="form-group">
+            <label for="bpm">Your Resting Heart rate in Beats per Minute(BPM):</label>
+            <!-- to simulate old browsers without support to type=number, I use type=text here -->
+            <input type="text" class="form-control" name="bpm" id="bpm" placeholder="If you don't know, use 60">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="reset" class="btn btn-warning">Clear Form</button>
+        </form>
+      </div>
+
+      <!-- cards of result message -->
+      <div class="card-body text-center" id="resultCard">
+        <h5 class="text-center pt-4 pb-2" id="bpmInfo">Your maximum heart rate is <span id="mhr"></span> BPM.</h5>
+
+        <div class="card-group" id="fiveCards">
+          <div class="card text-center">
+            <h4 class="card-header">Easy</h4>
+            <div class="card-body">
+              <h5 class="card-title"><span id="fromBPM1"></span> - <span id="toBPM1"></span> BPM</h5>
+              <div class="card-text">
+                <h6>50-60%</h6>
+                <p>Max Heart Rate</p>
+                <p>Warm up or cool down</p>
+              </div>
+            </div>
+            <h4 class="card-footer">Zone 1</h4>
+          </div>
+
+          <div class="card text-center">
+            <h4 class="card-header">Fitness</h4>
+            <div class="card-body">
+              <h5 class="card-title"><span id="fromBPM2"></span> - <span id="toBPM2"></span> BPM</h5>
+              <div class="card-text">
+                <h6>60-70%</h6>
+                <p>Max Heart Rate</p>
+                <p>Burn fat</p>
+              </div>
+            </div>
+            <h4 class="card-footer">Zone 2</h4>
+          </div>
+
+          <div class="card text-center">
+            <h4 class="card-header">Endure</h4>
+            <div class="card-body">
+              <h5 class="card-title"><span id="fromBPM3"></span> - <span id="toBPM3"></span> BPM</h5>
+              <div class="card-text">
+                <h6>70-80%</h6>
+                <p>Max Heart Rate</p>
+                <p>Cardio workout</p>
+              </div>
+            </div>
+            <h4 class="card-footer">Zone 3</h4>
+          </div>
+
+          <div class="card text-center">
+            <h4 class="card-header">Perform</h4>
+            <div class="card-body">
+              <h5 class="card-title"><span id="fromBPM4"></span> - <span id="toBPM4"></span> BPM</h5>
+              <div class="card-text">
+                <h6>80-90%</h6>
+                <p>Max Heart Rate</p>
+                <p>Feel the burn</p>
+              </div>
+            </div>
+            <h4 class="card-footer">Zone 4</h4>
+          </div>
+
+          <div class="card text-center">
+            <h4 class="card-header">Sprint</h4>
+            <div class="card-body">
+              <h5 class="card-title"><span id="fromBPM5"></span> - <span id="toBPM5"></span> BPM</h5>
+              <div class="card-text">
+                <h6>90-100%</h6>
+                <p>Max Heart Rate</p>
+                <p>Go all out!</p>
+              </div>
+            </div>
+            <h4 class="card-footer">Zone 5</h4>
+          </div>
+        </div>
+
+        <button type='button' class='btn btn-primary my-4' id="returnBtn">New Calculation</button>
+      </div>
+
+      <div class="card-footer text-muted">Copyright&copy; 2018</div>
+
+    </div>
+
+    <!-- jQuery JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <!-- Customized JS -->
+    <script src="js/main.js"></script>
+
+  </body>
+</html>
